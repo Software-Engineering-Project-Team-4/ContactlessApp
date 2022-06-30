@@ -2,6 +2,7 @@
     <string name="app_name">Contactless</string>
     
     <string-array name="Teacher">
+        <item>Teacher</item>
         <item>Dr.Who</item>
         <item>Dr.Manhattan</item>
         <item>Dr.Strange</item>
