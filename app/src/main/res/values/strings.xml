@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Contactless</string>
+    
+    <string-array name="Teacher">
+        <item>Dr.Who</item>
+        <item>Dr.Manhattan</item>
+        <item>Dr.Strange</item>
+        <item>Dr.Casturi</item>
+    </string-array>
+    
+</resources>
