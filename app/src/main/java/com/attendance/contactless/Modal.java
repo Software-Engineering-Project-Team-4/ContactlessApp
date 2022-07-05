@@ -2,15 +2,14 @@ package com.attendance.contactless;
 
 public class Modal {
 
-    // variables for our coursename,
-    // description, tracks and duration, id.
+    // variables for our Student,
     private String firstName;
     private String lastName;
     private int attend;
     private String professor;
     private int id;
 
-    // creating getter and setter methods
+    //getter and setter methods
     public String getFirstName() {
         return firstName;
     }
