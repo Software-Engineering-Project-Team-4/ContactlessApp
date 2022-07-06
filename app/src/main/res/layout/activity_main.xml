@@ -8,47 +8,46 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/EnterFollowing"
-        android:layout_width="wrap_content"
+        android:id="@+id/SignIn"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="131dp"
-        android:gravity="center"
-        android:text="Enter The Following:"
-        android:textSize="25dp" />
+        android:text="Sign In"
+        android:textColor="@color/white"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:layout_margin="110dp"
+        android:gravity="center"/>
+
 
     <EditText
-        android:id="@+id/FirstName"
-        android:layout_width="wrap_content"
+        android:id="@+id/username"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="181dp"
-        android:ems="10"
-        android:hint="First Name"
-        android:inputType="textPersonName" />
+        android:layout_below="@id/SignIn"
+        android:layout_margin="10dp"
+        android:layout_marginTop="58dp"
+        android:layout_marginBottom="10dp"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawablePadding="20dp"
+        android:hint="Student Username"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
     <EditText
-        android:id="@+id/LastName"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="253dp"
-        android:ems="10"
-        android:hint="Last Name"
-        android:inputType="textPersonName" />
-
-    <TextView
-        android:id="@+id/SelectFollowing"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="335dp"
-        android:text="Select The Following:"
-        android:textSize="25dp" />
+        android:id="@+id/password"
+        android:layout_below="@id/username"
+        android:background="#30ffffff"
+        android:hint="Password"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:layout_margin="10dp"
+        android:padding="20dp"
+        android:drawableLeft="@drawable/ic_baseline_info_24"
+        android:drawablePadding="20dp"/>
 
     <Spinner
         android:id="@+id/TeacherList"
@@ -57,8 +56,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="392dp"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="452dp"
         android:contentDescription="Teacher"
         android:gravity="center_horizontal|center_vertical"
         android:spinnerMode="dropdown" />
