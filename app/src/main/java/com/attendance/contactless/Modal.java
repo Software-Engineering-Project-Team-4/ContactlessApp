@@ -6,6 +6,7 @@ public class Modal {
     private String firstName;
     private String lastName;
     private int attend;
+    private int StudentID;
     private String professor;
     private int id;
 

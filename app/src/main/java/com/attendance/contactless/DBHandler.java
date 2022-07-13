@@ -14,6 +14,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String ID_COL = "id";
     private static final String FIRST_COL = "firstname";
     private static final String LAST_COL = "lastname";
+//    private static final int NUMBER_COLUMN = ; //StudentID
     private static final String PROF_COL = "professor";
     private static final String ATTEND_COL = "attendance";
     public DBHandler(Context context) {
@@ -22,15 +23,16 @@ public class DBHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE " + TABLE_NAME + " ("
-                + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + ID_COL + " int PRIMARY KEY AUTOINCREMENT, "
                 + FIRST_COL + " TEXT,"
                 + LAST_COL + " TEXT,"
+               // + NUMBER_COLUMN + " int,"
                 + PROF_COL + " TEXT,"
                 + ATTEND_COL + " TEXT)";
         db.execSQL(query);
     }
     // adds student to database.
-    public void addNewStudent(String firstName, String lastName, String professor) {
+    public void addNewStudent(String firstName, String lastName, Integer StudentID, String professor) {
         int attend =1;
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -40,6 +42,7 @@ public class DBHandler extends SQLiteOpenHelper {
         // passes student info to values
         values.put(FIRST_COL, firstName);
         values.put(LAST_COL, lastName);
+       // values.put(NUMBER_COLUMN, StudentID)
         values.put(PROF_COL, professor);
         values.put(ATTEND_COL, attend);
 
@@ -74,5 +77,8 @@ public class DBHandler extends SQLiteOpenHelper {
         // checks if table already exists
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
+    }
+
+    public void addNewStudent(String firstName, String lastName, String professor) {
     }
 }
