@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class UsageActivity extends AppCompatActivity {
     private Button isStudentButtonBtn;
+    private Button isTeacherButtonBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,11 +17,22 @@ public class UsageActivity extends AppCompatActivity {
         isStudentButtonBtn = findViewById(R.id.isStudentButton);
 
         isStudentButtonBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
                 startActivity(new Intent(UsageActivity.this, MainActivity.class));
             }
 
         });
+        isTeacherButtonBtn = findViewById(R.id.isTeacherButton);
+
+        isTeacherButtonBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UsageActivity.this, TeacherActivity.class));
+            }
+        });
     }
+
 }
+
 
