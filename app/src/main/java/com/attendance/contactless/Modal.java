@@ -6,7 +6,7 @@ public class Modal {
     private String firstName;
     private String lastName;
     private int attend;
-    private int StudentID;
+    private int studentID;
     private String professor;
     private int id;
 
@@ -26,6 +26,10 @@ public class Modal {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    public int getStudentID() {return studentID; }
+
+    public void setStudentID(int StudentID) { this.studentID = StudentID; }
 
     public int getAttend() {
         return attend;
@@ -52,9 +56,10 @@ public class Modal {
     }
 
     // constructor
-    public Modal(String firstName, String lastName, int attend, String professor) {
+    public Modal(String firstName, String lastName, int studentID, int attend, String professor) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.studentID =studentID;
         this.attend = attend;
         this.professor = professor;
     }

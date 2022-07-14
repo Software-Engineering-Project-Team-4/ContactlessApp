@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private EditText firstNameEdt, lastNameEdt; //studentIDEdt;
+    private EditText firstNameEdt, lastNameEdt, studentIDEdt;
     private Button submitBtn,checkBtn;
     private DBHandler dbHandler;
 
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         // initializing variables.
         firstNameEdt = findViewById(R.id.FirstName);
         lastNameEdt = findViewById(R.id.LastName);
-        //studentIDEdt = findViewById(R.id.StudentID);
+        studentIDEdt = findViewById(R.id.studentID);
         submitBtn = findViewById(R.id.Submit);
         checkBtn = findViewById(R.id.CheckAttendance);
         dbHandler = new DBHandler(MainActivity.this);
@@ -42,25 +42,23 @@ public class MainActivity extends AppCompatActivity {
                 // stores data inputted in app
                 String firstName = firstNameEdt.getText().toString();
                 String lastName = lastNameEdt.getText().toString();
-               // Integer StudentID = studentIDEdt.getText().toIntegrer();
+                int studentID = Integer.parseInt(studentIDEdt.getText().toString());
                 String professor = mySpinner.getSelectedItem().toString();
                 // checks if data was inputted
                 if (firstName.isEmpty() && lastName.isEmpty()) {
                     Toast.makeText(MainActivity.this, "Please enter all the data..", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                //if (StudentID != ){
-                //    "Please enter numbers only in this line."
-                //}
+
 
                 //adds data to database
-                dbHandler.addNewStudent(firstName, lastName, professor);
+                dbHandler.addNewStudent(firstName, lastName, studentID, professor);
 
                 // displays confirmation that the data was added and resets text fields
                 Toast.makeText(MainActivity.this, "Course has been added.", Toast.LENGTH_SHORT).show();
                 firstNameEdt.setText("");
                 lastNameEdt.setText("");
-               // StudentIDEdt.setText("");
+                studentIDEdt.setText("");
 
             }
         });
