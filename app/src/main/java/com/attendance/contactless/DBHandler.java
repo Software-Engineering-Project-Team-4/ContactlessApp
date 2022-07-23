@@ -1,4 +1,6 @@
 package com.attendance.contactless;
+import static com.attendance.contactless.MainActivity.studentIDIn;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -14,8 +16,9 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String ID_COL = "id";
     private static final String FIRST_COL = "firstname";
     private static final String LAST_COL = "lastname";
+    private static final String STUDENTID_COL = "studentID";
     private static final String PROF_COL = "professor";
-    private static final String ATTEND_COL = "attendance";
+    private static final String ATTEND_COL = "attend";
     public DBHandler(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
@@ -24,13 +27,13 @@ public class DBHandler extends SQLiteOpenHelper {
         String query = "CREATE TABLE " + TABLE_NAME + " ("
                 + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + FIRST_COL + " TEXT,"
-                + LAST_COL + " TEXT,"
+                + LAST_COL + " TEXT," + STUDENTID_COL + " TEXT,"
                 + PROF_COL + " TEXT,"
                 + ATTEND_COL + " TEXT)";
         db.execSQL(query);
     }
     // adds student to database.
-    public void addNewStudent(String firstName, String lastName, String professor) {
+    public void addNewStudent(String firstName, String lastName, String professor, String studentID) {
         int attend =1;
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -40,6 +43,7 @@ public class DBHandler extends SQLiteOpenHelper {
         // passes student info to values
         values.put(FIRST_COL, firstName);
         values.put(LAST_COL, lastName);
+        values.put(STUDENTID_COL, studentID);
         values.put(PROF_COL, professor);
         values.put(ATTEND_COL, attend);
 
@@ -52,7 +56,7 @@ public class DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         // reads data from database
-        Cursor cursorAttend = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+        Cursor cursorAttend = db.rawQuery("SELECT * FROM " + TABLE_NAME+" WHERE studentID IS \""+studentIDIn+"\"", null);
 
         ArrayList<Modal> modalArrayList = new ArrayList<>();
 
@@ -62,8 +66,8 @@ public class DBHandler extends SQLiteOpenHelper {
                 // stores data from database
                 modalArrayList.add(new Modal(cursorAttend.getString(1),
                         cursorAttend.getString(2),
-                        cursorAttend.getInt(4),
-                        cursorAttend.getString(3)));
+                        cursorAttend.getInt(5),
+                        cursorAttend.getString(4),cursorAttend.getString(3)));
             } while (cursorAttend.moveToNext());
         }
         cursorAttend.close();
@@ -74,5 +78,11 @@ public class DBHandler extends SQLiteOpenHelper {
         // checks if table already exists
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
+    }
+    public void updateStudent() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "UPDATE "+TABLE_NAME + " SET "+ATTEND_COL+" = "+ATTEND_COL+"+1 WHERE "+STUDENTID_COL+" IS \""+studentIDIn+"\"";
+        db.execSQL(query);
+        db.close();
     }
 }

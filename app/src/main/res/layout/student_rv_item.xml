@@ -13,15 +13,31 @@
         android:layout_height="wrap_content"
         android:layout_margin="3dp"
         android:orientation="vertical">
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
         <!--text view for our firstname-->
+
         <TextView
             android:id="@+id/idTVFirstName"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:padding="3dp"
             android:text="Firstname"
             android:textColor="@color/black" />
+        <TextView
+            android:id="@+id/idTVStudent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="3dp"
+            android:text="Student ID"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

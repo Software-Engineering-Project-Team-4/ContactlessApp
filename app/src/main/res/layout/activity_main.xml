@@ -35,18 +35,29 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="253dp"
+        android:layout_marginTop="232dp"
         android:ems="10"
         android:hint="Last Name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/StudentID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="278dp"
+        android:ems="10"
+        android:hint="Student ID"
         android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/SelectFollowing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="335dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="346dp"
         android:text="Select The Following:"
         android:textSize="25dp" />
 
@@ -73,7 +84,20 @@
         android:layout_marginTop="460dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:text="Submit"
+        android:text="Add New Student"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="515dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Update Attendance"
         android:textAllCaps="false" />
 
     <Button
@@ -82,7 +106,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="515dp"
+        android:layout_marginTop="570dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:text="Check Attendance"
         android:textAllCaps="false" />
 </RelativeLayout>

@@ -39,6 +39,7 @@ public class StudentRVAdapter extends RecyclerView.Adapter<StudentRVAdapter.View
         holder.professorTV.setText(modal.getProfessor());
         holder.lastNameTV.setText(modal.getLastName());
         holder.attendTV.setText(""+modal.getAttend());
+        holder.studentTV.setText(modal.getStudentID());
     }
 
     @Override
@@ -50,7 +51,7 @@ public class StudentRVAdapter extends RecyclerView.Adapter<StudentRVAdapter.View
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         // variables.
-        private TextView firstNameTV, professorTV, lastNameTV, attendTV;
+        private TextView firstNameTV, professorTV, lastNameTV, attendTV,studentTV;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -59,6 +60,7 @@ public class StudentRVAdapter extends RecyclerView.Adapter<StudentRVAdapter.View
             professorTV = itemView.findViewById(R.id.idTVProfessor);
             lastNameTV = itemView.findViewById(R.id.idTVLastName);
             attendTV = itemView.findViewById(R.id.idTVAttend);
+            studentTV = itemView.findViewById(R.id.idTVStudent);
         }
     }
 }
