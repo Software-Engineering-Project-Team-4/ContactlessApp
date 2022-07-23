@@ -107,8 +107,11 @@
         android:layout_marginStart="91dp"
         android:layout_marginTop="477dp"
         android:contentDescription="Teacher"
+        android:dropDownSelector="@color/white"
         android:gravity="center_horizontal|center_vertical"
         android:spinnerMode="dropdown" />
+
+
 
 
 </RelativeLayout>
