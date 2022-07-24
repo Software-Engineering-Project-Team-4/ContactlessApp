@@ -1,21 +1,35 @@
 package com.attendance.contactless;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
 
 public class MainActivity extends AppCompatActivity {
+    private EditText firstNameEdt, lastNameEdt, studentIDEdt;
+    private Button submitBtn,checkBtn;
+    private DBHandler dbHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // initializing variables.
+        firstNameEdt = findViewById(R.id.firstname);
+        lastNameEdt = findViewById(R.id.lastname);
+        studentIDEdt = findViewById(R.id.studentID);
+        submitBtn = findViewById(R.id.submit);
+        checkBtn = findViewById(R.id.CheckAttendance);
+        dbHandler = new DBHandler(MainActivity.this);
 
-        //mydb = new DBHelper(this);
-        //ArrayList array_list = mydb.getAllContacts();
-        //ArrayAdapter arrayAdapter=new ArrayAdapter(this,android.R.layout.simple_list_item_1, array_list);
+        //connecting ID to DB
 
         Spinner mySpinner = (Spinner) findViewById(R.id.TeacherList);
 
@@ -23,21 +37,40 @@ public class MainActivity extends AppCompatActivity {
                 R.array.Teacher, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mySpinner.setAdapter(adapter);
-    }
-    /* Connecting the UI to Database
 
-    obj = (ListView)findViewById(R.id.TeacherList);
-    obj.setAdapter(arrayAdapter);
-    obj.setOnItemClickListener(new OnItemClickListener(){
-        public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,long arg3) {
-                // TODO Auto-generated method stub
-                int id_To_Search = arg2 + 1;
-                Bundle Spinner = new Spinner();
-                Spinner.putInt("id", id_To_Search);
-                Intent intent = new Intent(getApplicationContext(),DisplayContact.class);
-                intent.putExtras(Spinner);
-                startActivity(intent);
-             }
-       }
-     */
+        submitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // stores data inputted in app
+                String firstName = firstNameEdt.getText().toString();
+                String lastName = lastNameEdt.getText().toString();
+                int studentID = Integer.parseInt(studentIDEdt.getText().toString());
+                String professor = mySpinner.getSelectedItem().toString();
+                // checks if data was inputted
+                if (firstName.isEmpty() && lastName.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Please enter all the data..", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+
+                //adds data to database
+                dbHandler.addNewStudent(firstName, lastName, studentID, professor);
+
+                // displays confirmation that the data was added and resets text fields
+                Toast.makeText(MainActivity.this, "Course has been added.", Toast.LENGTH_SHORT).show();
+                firstNameEdt.setText("");
+                lastNameEdt.setText("");
+                studentIDEdt.setText("");
+
+            }
+        });
+        checkBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, ViewAttend.class);
+                startActivity(i);
+            }
+        });
+    }
 }
