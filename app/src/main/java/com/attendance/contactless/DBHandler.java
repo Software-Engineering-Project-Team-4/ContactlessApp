@@ -85,7 +85,7 @@ public class DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         // reads data from database
-        Cursor cursorAttend = db.rawQuery("SELECT * FROM " + TABLE_NAME+" WHERE lastname IS \""+lastnameIn+"\"", null);
+        Cursor cursorAttend = db.rawQuery("SELECT * FROM " + TABLE_NAME+" WHERE "+PROF_COL+ " IS \""+lastnameIn+"\"", null);
 
         ArrayList<Modal> modalArrayList = new ArrayList<>();
 

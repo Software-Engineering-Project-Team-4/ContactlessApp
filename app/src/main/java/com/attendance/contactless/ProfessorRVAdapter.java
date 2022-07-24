@@ -26,7 +26,7 @@ public class ProfessorRVAdapter extends RecyclerView.Adapter<ProfessorRVAdapter.
     @Override
     public ProfessorRVAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //inflates layout and returns
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.student_rv_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.professor_rv_item, parent, false);
         return new ProfessorRVAdapter.ViewHolder(view);
     }
     @Override
@@ -36,7 +36,7 @@ public class ProfessorRVAdapter extends RecyclerView.Adapter<ProfessorRVAdapter.
         holder.firstNameTV.setText(modal.getFirstName());
         holder.professorTV.setText(modal.getProfessor());
         holder.lastNameTV.setText(modal.getLastName());
-        holder.attendTV.setText(""+modal.getAttend());
+        holder.attendTV.setText(" "+modal.getAttend());
         holder.studentTV.setText(modal.getStudentID());
     }
     @Override
