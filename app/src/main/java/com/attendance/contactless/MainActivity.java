@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private EditText firstNameEdt, lastNameEdt,studentIDEdt;
+    private EditText firstNameEdt, lastNameEdt,studentIDEdt,professorEdt,pinEdt;
     private Button submitBtn,checkBtn,updateBtn;
     private DBHandler dbHandler;
     public static String studentIDIn;
@@ -24,18 +24,13 @@ public class MainActivity extends AppCompatActivity {
         firstNameEdt = findViewById(R.id.FirstName);
         lastNameEdt = findViewById(R.id.LastName);
         studentIDEdt = findViewById(R.id.StudentID);
+        professorEdt = findViewById(R.id.TeacherList);
+        pinEdt = findViewById(R.id.PinCode);
         submitBtn = findViewById(R.id.Submit);
         updateBtn = findViewById(R.id.update);
         checkBtn = findViewById(R.id.CheckAttendance);
         dbHandler = new DBHandler(MainActivity.this);
 
-        //controls spinner
-        Spinner mySpinner = (Spinner) findViewById(R.id.TeacherList);
-
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.Teacher, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mySpinner.setAdapter(adapter);
 
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,10 +41,15 @@ public class MainActivity extends AppCompatActivity {
                 String lastName = lastNameEdt.getText().toString();
                 String studentID = studentIDEdt.getText().toString();
                 studentIDIn = studentID;
-                String professor = mySpinner.getSelectedItem().toString();
+                String professor = professorEdt.getText().toString();
+                String pincode = pinEdt.getText().toString();
                 // checks if data was inputted
                 if (firstName.isEmpty() && lastName.isEmpty() && studentID.isEmpty()) {
                     Toast.makeText(MainActivity.this, "Please enter all the data..", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (Integer.parseInt(pincode) != Integer.parseInt(dbHandler.getpin(professor))){
+                    Toast.makeText(MainActivity.this, "Incorrect Pin", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -62,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
                 firstNameEdt.setText("");
                 lastNameEdt.setText("");
                 studentIDEdt.setText("");
+                professorEdt.setText("");
+                pinEdt.setText("");
 
             }
         });
@@ -74,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 String lastName = lastNameEdt.getText().toString();
                 String studentID = studentIDEdt.getText().toString();
                 studentIDIn = studentID;
-                String professor = mySpinner.getSelectedItem().toString();
+                String professor = professorEdt.getText().toString();
                 // checks if data was inputted
                 if (firstName.isEmpty() && lastName.isEmpty() && studentID.isEmpty()) {
                     Toast.makeText(MainActivity.this, "Please enter all the data..", Toast.LENGTH_SHORT).show();
@@ -90,6 +92,8 @@ public class MainActivity extends AppCompatActivity {
                 firstNameEdt.setText("");
                 lastNameEdt.setText("");
                 studentIDEdt.setText("");
+                professorEdt.setText("");
+                pinEdt.setText("");
 
             }
         });
@@ -101,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                 String lastName = lastNameEdt.getText().toString();
                 String studentID = studentIDEdt.getText().toString();
                 if(!studentID.isEmpty())studentIDIn = studentID;
-                String professor = mySpinner.getSelectedItem().toString();
+                String professor = professorEdt.getText().toString();
                 // checks if data was inputted
                 if (studentIDIn.isEmpty()) {
                     Toast.makeText(MainActivity.this, "Please enter all the data..", Toast.LENGTH_SHORT).show();

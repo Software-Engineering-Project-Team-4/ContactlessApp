@@ -9,8 +9,26 @@ public class Modal {
     private String professor;
     private String studentID;
     private int id;
+    private String professorID;
+    private String pin;
 
     //getter and setter methods
+    public String getPin() {
+        return pin;
+    }
+
+    public void setPin(String pin) {
+        this.pin = pin;
+    }
+
+    public String getProfessorID() {
+        return professorID;
+    }
+
+    public void setProfessorID(String professorID) {
+        this.professorID = professorID;
+    }
+
     public String getStudentID() {
         return studentID;
     }
@@ -66,5 +84,14 @@ public class Modal {
         this.attend = attend;
         this.professor = professor;
         this.studentID = studentID;
+    }
+    public Modal(String firstName, String lastName, String professorID, String pin){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.professorID = professorID;
+        this.pin = pin;
+    }
+    public Modal (String pin){
+        this.pin = pin;
     }
 }

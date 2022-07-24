@@ -15,21 +15,45 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="563dp"
+        android:layout_marginTop="460dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:text="Sign In"
+        android:text="Add New Professor"
+        android:textAllCaps="false" />
+    <Button
+        android:id="@+id/Pin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="515dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Generate New Pin"
+        android:textAllCaps="false" />
+    <Button
+        android:id="@+id/checkAttend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="570dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Check Attendance"
         android:textAllCaps="false" />
 
     <EditText
-        android:id="@+id/lastName2"
+        android:id="@+id/professorID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
-        android:layout_marginTop="430dp"
+        android:layout_marginTop="380dp"
         android:ems="10"
-        android:hint="Preffered Description"
+        android:hint="Professor ID"
         android:inputType="textPersonName" />
 
     <EditText
@@ -38,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="300dp"
         android:ems="10"
         android:hint="Last Name"
         android:inputType="textPersonName" />
@@ -64,7 +88,8 @@
         android:layout_marginStart="89dp"
         android:layout_marginTop="58dp"
         android:gravity="center"
-        android:text="This is a Teacher Screen"
+        android:text="PIN: "
         android:textSize="20dp" />
+
 
 </RelativeLayout>

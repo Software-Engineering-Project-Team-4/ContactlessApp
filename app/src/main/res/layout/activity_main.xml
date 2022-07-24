@@ -51,28 +51,27 @@
         android:hint="Student ID"
         android:inputType="textPersonName" />
 
-    <TextView
-        android:id="@+id/SelectFollowing"
+    <EditText
+        android:id="@+id/TeacherList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="346dp"
-        android:text="Select The Following:"
-        android:textSize="25dp" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="323dp"
+        android:ems="10"
+        android:hint="Teacher Last Name"
+        android:inputType="textPersonName"/>
 
-    <Spinner
-        android:id="@+id/TeacherList"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
+    <EditText
+        android:id="@+id/PinCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="392dp"
-        android:contentDescription="Teacher"
-        android:gravity="center_horizontal|center_vertical"
-        android:spinnerMode="dropdown" />
+        android:layout_marginTop="368dp"
+        android:ems="10"
+        android:hint="Class Pin"
+        android:inputType="textPersonName"/>
 
     <Button
         android:id="@+id/Submit"
