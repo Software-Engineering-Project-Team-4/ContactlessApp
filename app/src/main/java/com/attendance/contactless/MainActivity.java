@@ -77,12 +77,16 @@ public class MainActivity extends AppCompatActivity {
                 String studentID = studentIDEdt.getText().toString();
                 studentIDIn = studentID;
                 String professor = professorEdt.getText().toString();
+                String pincode = pinEdt.getText().toString();
                 // checks if data was inputted
                 if (firstName.isEmpty() && lastName.isEmpty() && studentID.isEmpty()) {
                     Toast.makeText(MainActivity.this, "Please enter all the data..", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
+                if (Integer.parseInt(pincode) != Integer.parseInt(dbHandler.getpin(professor))){
+                    Toast.makeText(MainActivity.this, "Incorrect Pin", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 //updates attendance in database
                 dbHandler.updateStudent();
 

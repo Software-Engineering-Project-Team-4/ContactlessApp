@@ -14,8 +14,8 @@ public class ViewProfAttend extends AppCompatActivity {
     // variables
     private ArrayList<Modal> modalArrayList;
     private DBHandler dbHandler;
-    private StudentRVAdapter studentRVAdapter;
-    private RecyclerView studentRV;
+    private ProfessorRVAdapter professorRVAdapter;
+    private RecyclerView professorRV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,14 +30,14 @@ public class ViewProfAttend extends AppCompatActivity {
         modalArrayList = dbHandler.readAttendProf();
 
         // passes arraylist to adapter
-        studentRVAdapter = new StudentRVAdapter(modalArrayList, ViewProfAttend.this);
-        studentRV = findViewById(R.id.idRVAttendance);
+        professorRVAdapter = new ProfessorRVAdapter(modalArrayList, ViewProfAttend.this);
+        professorRV = findViewById(R.id.idRVAttendance);
 
         // sets layout manager
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ViewProfAttend.this, RecyclerView.VERTICAL, false);
-        studentRV.setLayoutManager(linearLayoutManager);
+        professorRV.setLayoutManager(linearLayoutManager);
 
         // sets adapter to recycler view
-        studentRV.setAdapter(studentRVAdapter);
+        professorRV.setAdapter(professorRVAdapter);
     }
 }

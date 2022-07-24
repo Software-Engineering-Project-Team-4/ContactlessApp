@@ -13,7 +13,7 @@
         android:layout_height="115dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="585dp"
+        android:layout_marginTop="470dp"
         android:text="Teacher"
         android:textSize="30dp" />
 
@@ -37,7 +37,7 @@
         android:layout_height="115dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="403dp"
+        android:layout_marginTop="300dp"
         android:text="Student"
         android:textSize="30dp" />
 </RelativeLayout>
