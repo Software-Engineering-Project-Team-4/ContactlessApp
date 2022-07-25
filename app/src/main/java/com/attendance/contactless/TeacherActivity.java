@@ -16,7 +16,7 @@ import java.util.Random;
 public class TeacherActivity extends AppCompatActivity {
     private EditText firstNameEdt, lastNameEdt,professorIDEdt;
     private TextView pinEdt;
-    private Button submitBtn,checkBtn,updateBtn;
+    private Button submitBtn,checkBtn;
     private DBHandler dbHandler;
     public static String lastnameIn;
     @Override
@@ -29,7 +29,6 @@ public class TeacherActivity extends AppCompatActivity {
         professorIDEdt = findViewById(R.id.professorID);
         pinEdt = findViewById(R.id.textView4);
         submitBtn = findViewById(R.id.submit);
-        updateBtn = findViewById(R.id.Pin);
         checkBtn = findViewById(R.id.checkAttend);
         dbHandler = new DBHandler(TeacherActivity.this);
         submitBtn.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +49,9 @@ public class TeacherActivity extends AppCompatActivity {
                 //adds data to database
                 Random rand = new Random();
                 String pin = String.format("%04d", rand.nextInt(10000));
+                if(dbHandler.getpin(lastName) == "not found")
                 dbHandler.addNewProfessor(firstName, lastName, professorID,pin);
+                else dbHandler.updateProfessor(pin);
 
 
                 // displays confirmation that the data was added and resets text fields
@@ -62,37 +63,7 @@ public class TeacherActivity extends AppCompatActivity {
 
             }
         });
-        updateBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                // stores data inputted in app
-                String firstName = firstNameEdt.getText().toString();
-                String lastName = lastNameEdt.getText().toString();
-                String professorID = professorIDEdt.getText().toString();
-                lastnameIn = lastName;
-                // checks if data was inputted
-                if (firstName.isEmpty() && lastName.isEmpty() && professorID.isEmpty()) {
-                    Toast.makeText(TeacherActivity.this, "Please enter all the data..", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                //updates pin in database
-                Random rand = new Random();
-                String pin = String.format("%04d", rand.nextInt(10000));
-                dbHandler.updateProfessor(pin);
-
-
-                // displays confirmation that the data was added and resets text fields
-                Toast.makeText(TeacherActivity.this, "Pin has been updated.", Toast.LENGTH_SHORT).show();
-                firstNameEdt.setText("");
-                lastNameEdt.setText("");
-                professorIDEdt.setText("");
-                pinEdt.setText("Pin: "+dbHandler.getpin(lastName));
-
-
-            }
-        });
         checkBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

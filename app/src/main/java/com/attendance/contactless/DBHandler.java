@@ -114,6 +114,18 @@ public class DBHandler extends SQLiteOpenHelper {
         }
         return rv;
     }
+    public String getLast(String studentID) {
+
+        String rv = "not found";
+        SQLiteDatabase db = this.getReadableDatabase();
+        String whereclause = STUDENTID_COL+" = ?";
+        String[] whereargs = new String[]{studentID};
+        Cursor csr = db.query(TABLE_NAME, null, whereclause, whereargs, null, null, null);
+        if (csr.moveToFirst()) {
+            rv = csr.getString(4);
+        }
+        return rv;
+    }
         public ArrayList<Modal> readAttend() {
         // creates a readable database
         SQLiteDatabase db = this.getReadableDatabase();

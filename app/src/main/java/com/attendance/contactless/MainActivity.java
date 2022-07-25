@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private EditText firstNameEdt, lastNameEdt,studentIDEdt,professorEdt,pinEdt;
-    private Button submitBtn,checkBtn,updateBtn;
+    private Button submitBtn,checkBtn;
     private DBHandler dbHandler;
     public static String studentIDIn;
 
@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         professorEdt = findViewById(R.id.TeacherList);
         pinEdt = findViewById(R.id.PinCode);
         submitBtn = findViewById(R.id.Submit);
-        updateBtn = findViewById(R.id.update);
         checkBtn = findViewById(R.id.CheckAttendance);
         dbHandler = new DBHandler(MainActivity.this);
 
@@ -54,45 +53,13 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 //adds data to database
+                if (dbHandler.getLast(studentID) == "not found")
                 dbHandler.addNewStudent(firstName, lastName, professor,studentID);
+                else dbHandler.updateStudent();
 
 
                 // displays confirmation that the data was added and resets text fields
                 Toast.makeText(MainActivity.this, "Student has been added.", Toast.LENGTH_SHORT).show();
-                firstNameEdt.setText("");
-                lastNameEdt.setText("");
-                studentIDEdt.setText("");
-                professorEdt.setText("");
-                pinEdt.setText("");
-
-            }
-        });
-        updateBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                // stores data inputted in app
-                String firstName = firstNameEdt.getText().toString();
-                String lastName = lastNameEdt.getText().toString();
-                String studentID = studentIDEdt.getText().toString();
-                studentIDIn = studentID;
-                String professor = professorEdt.getText().toString();
-                String pincode = pinEdt.getText().toString();
-                // checks if data was inputted
-                if (firstName.isEmpty() && lastName.isEmpty() && studentID.isEmpty()) {
-                    Toast.makeText(MainActivity.this, "Please enter all the data..", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (Integer.parseInt(pincode) != Integer.parseInt(dbHandler.getpin(professor))){
-                    Toast.makeText(MainActivity.this, "Incorrect Pin", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                //updates attendance in database
-                dbHandler.updateStudent();
-
-
-                // displays confirmation that the data was added and resets text fields
-                Toast.makeText(MainActivity.this, "Attendance has been updated.", Toast.LENGTH_SHORT).show();
                 firstNameEdt.setText("");
                 lastNameEdt.setText("");
                 studentIDEdt.setText("");
