@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                 // displays confirmation that the data was added and resets text fields
-                Toast.makeText(MainActivity.this, "Student has been added.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Attendance has been Recorded", Toast.LENGTH_SHORT).show();
                 firstNameEdt.setText("");
                 lastNameEdt.setText("");
                 studentIDEdt.setText("");

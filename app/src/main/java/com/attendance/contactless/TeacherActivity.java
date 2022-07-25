@@ -55,7 +55,7 @@ public class TeacherActivity extends AppCompatActivity {
 
 
                 // displays confirmation that the data was added and resets text fields
-                Toast.makeText(TeacherActivity.this, "Teacher has been added.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(TeacherActivity.this, "Pin Generated", Toast.LENGTH_SHORT).show();
                 firstNameEdt.setText("");
                 lastNameEdt.setText("");
                 professorIDEdt.setText("");
