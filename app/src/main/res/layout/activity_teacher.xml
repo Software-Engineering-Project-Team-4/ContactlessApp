@@ -36,54 +36,78 @@
         android:textAllCaps="false"
         android:backgroundTint="@color/design_default_color_primary_dark"/>
 
+
     <EditText
         android:id="@+id/professorID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="500dp"
+        android:layout_height="50dp"
         android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="380dp"
-        android:ems="10"
-        android:hint="Professor ID"
-        android:inputType="textPersonName"
-        android:textColor="@color/white"/>
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/ic_baseline_admin_panel_settings_24"
+        android:drawablePadding="10dp"
+        android:hint="Professor id"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/lastName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="500dp"
+        android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="300dp"
-        android:ems="10"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawablePadding="10dp"
         android:hint="Last Name"
-        android:inputType="textPersonName"
-        android:textColor="@color/white"/>
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
 
     <EditText
         android:id="@+id/firstName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="500dp"
+        android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="220dp"
-        android:ems="10"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawablePadding="10dp"
         android:hint="First Name"
-        android:inputType="textPersonName"
-        android:textColor="@color/white"/>
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="229dp"
-        android:layout_height="110dp"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="89dp"
-        android:layout_marginTop="58dp"
-        android:gravity="center"
+        android:layout_marginTop="138dp"
+        android:gravity="center_vertical"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:background="#30ffffff"
         android:text="PIN: "
         android:textSize="20dp"
+        android:drawableLeft="@drawable/ic_baseline_admin_panel_settings_24"
         android:textColor="@color/white"/>
 
 
