@@ -19,7 +19,8 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:text="Generate Pin"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"
+        android:backgroundTint="@color/design_default_color_primary_dark"/>
 
     <Button
         android:id="@+id/checkAttend"
@@ -32,7 +33,8 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:text="Check Attendance"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"
+        android:backgroundTint="@color/design_default_color_primary_dark"/>
 
     <EditText
         android:id="@+id/professorID"
@@ -43,7 +45,8 @@
         android:layout_marginTop="380dp"
         android:ems="10"
         android:hint="Professor ID"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="@color/white"/>
 
     <EditText
         android:id="@+id/lastName"
@@ -54,7 +57,8 @@
         android:layout_marginTop="300dp"
         android:ems="10"
         android:hint="Last Name"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="@color/white"/>
 
     <EditText
         android:id="@+id/firstName"
@@ -65,7 +69,8 @@
         android:layout_marginTop="220dp"
         android:ems="10"
         android:hint="First Name"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/textView4"
@@ -78,7 +83,8 @@
         android:layout_marginTop="58dp"
         android:gravity="center"
         android:text="PIN: "
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:textColor="@color/white"/>
 
 
 </RelativeLayout>

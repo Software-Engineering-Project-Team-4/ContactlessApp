@@ -16,7 +16,8 @@
         android:layout_marginTop="131dp"
         android:gravity="center"
         android:text="Enter The Following:"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:textColor="@color/white"/>
 
     <EditText
         android:id="@+id/FirstName"
@@ -27,7 +28,8 @@
         android:layout_marginTop="181dp"
         android:ems="10"
         android:hint="First Name"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="@color/white"/>
 
     <EditText
         android:id="@+id/LastName"
@@ -38,7 +40,8 @@
         android:layout_marginTop="232dp"
         android:ems="10"
         android:hint="Last Name"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="@color/white"/>
 
     <EditText
         android:id="@+id/StudentID"
@@ -49,7 +52,8 @@
         android:layout_marginTop="278dp"
         android:ems="10"
         android:hint="Student ID"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="@color/white"/>
 
     <EditText
         android:id="@+id/TeacherList"
@@ -60,7 +64,8 @@
         android:layout_marginTop="323dp"
         android:ems="10"
         android:hint="Teacher Last Name"
-        android:inputType="textPersonName"/>
+        android:inputType="textPersonName"
+        android:textColor="@color/white"/>
 
     <EditText
         android:id="@+id/PinCode"
@@ -71,7 +76,8 @@
         android:layout_marginTop="368dp"
         android:ems="10"
         android:hint="Class Pin"
-        android:inputType="textPersonName"/>
+        android:inputType="textPersonName"
+        android:textColor="@color/white"/>
 
     <Button
         android:id="@+id/Submit"
@@ -84,7 +90,9 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:text="Update Attendance"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/design_default_color_primary_dark"/>
 
 
     <Button
@@ -98,5 +106,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:text="Check Attendance"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"
+        android:backgroundTint="@color/design_default_color_primary_dark"
+        android:textColor="@color/white"/>
 </RelativeLayout>
