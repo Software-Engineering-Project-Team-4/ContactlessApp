@@ -43,6 +43,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 + PIN_COL + " TEXT)";
         db.execSQL(query);
     }
+
     // adds professor to database.
     public void addNewStudent(String firstName, String lastName, String professor, String studentID) {
         int attend =1;
